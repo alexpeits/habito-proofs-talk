@@ -74,6 +74,27 @@ vmap f (x:>xs) = f x :> vmap f xs
 -- what about appending?
 -- (++>) :: Vec a n -> Vec a m -> Vec a ???
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 ---------------------------
 -- type-level arithmetic --
 ---------------------------
@@ -95,6 +116,27 @@ type family a * b where
 --     bound by a pattern with constructor: VNil :: forall a. Vec a 'Z,
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 ----------------------------
 -- propositional equality --
 ----------------------------
@@ -112,6 +154,27 @@ plusRightIdentity = Refl
 -- • Couldn't match type ‘n’ with ‘'Z + n’
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 ------------------------
 -- proof by induction --
 ------------------------
@@ -123,6 +186,32 @@ plusRightIdentity = Refl
 
 -- plusLeftIdentity :: forall n. Z + S n :~: S n
 -- plusLeftIdentity = gcastWith (plusLeftIdentity @n) Refl
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 ----------------
 -- singletons --
@@ -198,6 +287,26 @@ plusComm a k@(SS b)
   $ gcastWith (plusComm a b)
   $ gcastWith (plusAssoc a k (SS SZ))
       Refl
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 ---------------------
 -- back to vectors --
@@ -304,7 +413,28 @@ intersperse :: forall n a. IsNat n => a -> Vec a n -> Vec a (P (Two * n))
 intersperse = intersperse' (nat @n)
 
 
--- helpers
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+-------------
+-- helpers --
+-------------
 
 instance Show a => Show (Vec a n) where
   show v = "[" ++ go v
